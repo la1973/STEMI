@@ -1,7 +1,7 @@
 library(QCA)
 library(VennDiagram)
 
-data <- read.csv("/Users/lucianodeandrade/Desktop/Repositorio/QCA_LOS.csv")
+data <- read.csv("/Users/lucianodeandrade/Desktop/Repositorio/STEMI/QCA_LOS.csv")
 View(data)
 data
 data<-na.omit(data)
@@ -15,8 +15,8 @@ vennKrookNec <- venn.diagram(
   x=list(
     "LOS" = which(data$LOS == 1),
     "TWT" = which(COms[, 1] == 1),
-    "TXF" = which(COms[, 2] == 1),
-    "FMC+ECG" = which(COms[, 3] == 1)),
+    "FMC+TXF" = which(COms[, 6] == 1),
+    "ecg+TXF" = which(COms[, 3] == 1)),
   filename = NULL,
   cex= 2.5, cat.cex=2, cat.pos= c(340,185,-10,10),
   cat.dist= c(0.22, 0.40, 0.12, 0.12), 
